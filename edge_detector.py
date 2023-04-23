@@ -2,6 +2,7 @@ import cv2
 
 # Edge detection parameters
 DILATION_KERNEL_SIZE = 2
+EROSION_KERNEL_SIZE = 3
 METHOD = "canny"
 # Only for canny
 LOW_THRESHOLD = 10
@@ -21,6 +22,13 @@ class EdgeDetector:
 
         kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (kernel_size, kernel_size))
         self.image = cv2.dilate(self.image, kernel, iterations=1)
+
+    def erode_image(self, kernel_size=EROSION_KERNEL_SIZE):
+        if self.image is None:
+            raise ValueError("Image not provided.")
+
+        kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (kernel_size, kernel_size))
+        self.image = cv2.erode(self.image, kernel, iterations=1)
 
     def detect_edges(self, method=METHOD, low_threshold=LOW_THRESHOLD, high_threshold=HIGH_THRESHOLD, ksize=KSIZE):
         if self.image is None:
@@ -51,6 +59,7 @@ if __name__ == "__main__":
     # Create an instance of the EdgeDetector class and detect edges
     edge_detector = EdgeDetector(preprocessed_image)
     edge_detector.dilate_image()
+    edge_detector.erode_image()
     detected_edges = edge_detector.detect_edges()
 
     # Save the detected edges for debugging purposes

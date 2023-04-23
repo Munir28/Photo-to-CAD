@@ -14,11 +14,11 @@ Python 3.x
 OpenCV
 NumPy
 Other libraries (TBD)
-## Installation
+### Installation
 Clone the repository or download the source files.
 Create and activate a Python virtual environment (recommended).
 Install the required packages using pip or conda.
-## Usage
+### Usage
 Run the main.py script to execute the entire pipeline, from loading the input image to exporting the final DXF file.
 Contributing
 Please feel free to submit pull requests or report issues to improve the project. Any feedback and suggestions are appreciated.
