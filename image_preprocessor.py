@@ -3,8 +3,8 @@ import cv2
 RESIZE_WIDTH = 1000
 RESIZE_HEIGHT = None
 THRESHOLD = 128
-ALPHA = 1.2  # Contrast control (1.0-3.0)
-BETA = 25   # Brightness control (0-100)
+ALPHA = 1.25  # Contrast control (1.0-3.0)
+BETA = 10   # Brightness control (0-100)
 
 class ImagePreprocessor:
     # The class constructor initializes the input_path and sets an empty image attribute
